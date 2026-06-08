@@ -1,0 +1,6 @@
+{
+  "name": "Escala Empresarial",
+  "description": "Evalúa el nivel de madurez de tu empresa a través de un diagnóstico inteligente en formato chat.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

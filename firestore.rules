@@ -1,0 +1,64 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Global Safety Net
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    function isValidSession(data) {
+      return data.keys().hasAll(['id', 'score', 'level', 'createdAt', 'answers']) 
+        && data.keys().size() <= 6
+        && data.id is string
+        && data.id.size() <= 128
+        && data.score is int
+        && data.score >= 0
+        && data.score <= 45
+        && data.level is string
+        && data.level.size() <= 100
+        && data.createdAt is string
+        && data.createdAt.size() <= 50
+        && data.answers is list
+        && data.answers.size() <= 15
+        && (!data.keys().hasAny(['contactInfo']) || isValidContactInfo(data.contactInfo));
+    }
+
+    function isValidContactInfo(info) {
+      return info.keys().hasAll(['phone', 'submittedAt'])
+        && info.keys().size() <= 4
+        && (!info.keys().hasAny(['name']) || (info.name is string && info.name.size() <= 100))
+        && (!info.keys().hasAny(['email']) || (info.email is string && info.email.size() <= 100))
+        && info.phone is string
+        && info.phone.size() > 0
+        && info.phone.size() <= 50
+        && info.submittedAt is string
+        && info.submittedAt.size() <= 50;
+    }
+
+    match /sessions/{sessionId} {
+      allow get: if isValidId(sessionId);
+      allow create: if isValidId(sessionId) 
+        && isValidSession(incoming()) 
+        && incoming().id == sessionId;
+      allow update: if isValidId(sessionId)
+        && isValidSession(incoming())
+        && incoming().id == existing().id
+        && incoming().score == existing().score
+        && incoming().level == existing().level
+        && incoming().createdAt == existing().createdAt
+        && incoming().diff(existing()).affectedKeys().hasOnly(['contactInfo']);
+    }
+  }
+}

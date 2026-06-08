@@ -1,0 +1,50 @@
+{
+  "entities": {
+    "session": {
+      "title": "Session",
+      "description": "User diagnostic session and optional contact lead details",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique session ID"
+        },
+        "score": {
+          "type": "integer",
+          "description": "Total assessment score obtained"
+        },
+        "level": {
+          "type": "string",
+          "description": "Determined level of the business"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO timestamp when the session was completed/created"
+        },
+        "answers": {
+          "type": "array",
+          "description": "List of user answers"
+        },
+        "contactInfo": {
+          "type": "object",
+          "description": "Optional contact details",
+          "properties": {
+            "name": { "type": "string" },
+            "email": { "type": "string" },
+            "phone": { "type": "string" },
+            "submittedAt": { "type": "string", "format": "date-time" }
+          },
+          "required": ["phone", "submittedAt"]
+        }
+      },
+      "required": ["id", "score", "level"]
+    }
+  },
+  "firestore": {
+    "/sessions/{sessionId}": {
+      "schema": "session",
+      "description": "Stores business diagnostic assessment results and lead submissions"
+    }
+  }
+}

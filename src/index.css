@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap');
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: "Montserrat", sans-serif;
+  
+  --color-wad-navy-900: #0b1a33;
+  --color-wad-navy-800: #112545;
+  --color-wad-navy-700: #16315a;
+  --color-wad-navy-600: #1c3c6d;
+  --color-wad-navy-500: #264c84;
+  --color-wad-navy-400: #345f9e;
+  --color-wad-navy-300: #5a82bc;
+  --color-wad-navy-200: #9db4d6;
+  --color-wad-navy-100: #d8e1ef;
+  --color-wad-navy-050: #edf1f8;
+
+  --color-wad-red-700: #8c171c;
+  --color-wad-red-600: #be2026;
+  --color-wad-red-500: #d5333a;
+  --color-wad-red-400: #e36167;
+  --color-wad-red-100: #fae3e4;
+
+  --color-wad-ink-900: #0c0e12;
+  --color-wad-ink-800: #181d27;
+  --color-wad-ink-700: #22262f;
+  --color-wad-ink-600: #2a3340;
+  --color-wad-ink-500: #464c5d;
+  --color-wad-ink-400: #535862;
+  --color-wad-ink-300: #6a7282;
+  --color-wad-ink-200: #94979c;
+  --color-wad-ink-100: #d5d7da;
+
+  --color-wad-slate-500: #4a5565;
+
+  --color-wad-bg: #ffffff;
+  --color-wad-bg-soft: #f6f8fb;
+  --color-wad-bg-muted: #f1f3f6;
+
+  --color-wad-success: #2ba36b;
+  --color-wad-warning: #f59e0b;
+  --color-wad-danger: #d5333a;
+
+  --radius-wad-xs: 4px;
+  --radius-wad-sm: 6px;
+  --radius-wad-md: 8px;
+  --radius-wad-lg: 10px;
+  --radius-wad-xl: 12px;
+  --radius-wad-2xl: 16px;
+}
+
