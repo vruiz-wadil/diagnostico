@@ -717,7 +717,10 @@ export default function App() {
           </a>
 
           <div className="flex flex-col items-end gap-1">
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-4">
+              <a href="https://wadil.mx" className="text-xs font-display font-bold text-wad-red-600 hover:text-wad-red-500 transition-colors">
+                Ir al sitio
+              </a>
               <span className="text-xs font-display font-bold text-wad-ink-400">{QUESTIONS.length}/{QUESTIONS.length}</span>
               <div className="w-24 bg-wad-bg-soft h-1.5 rounded-full overflow-hidden border border-wad-ink-100/50">
                 <div className="bg-wad-navy-500 h-full w-full" />
