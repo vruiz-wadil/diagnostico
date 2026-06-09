@@ -179,7 +179,7 @@ export default function App() {
       }
     }
 
-    // Securely trigger the server-side email send
+    // Send email via PHP (LAMP server)
     try {
       const payload = {
         name: formData.name,
@@ -190,44 +190,17 @@ export default function App() {
         answers: userAnswers
       };
 
-      let emailSentNode = false;
-      try {
-        const response = await fetch('/api/send-email', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(payload)
-        });
-        if (response.ok) {
-          const data = await response.json();
-          console.log('Email sending outcome (Node):', data);
-          emailSentNode = true;
-        } else {
-          console.warn(`Node API responded with status ${response.status}. Trying PHP fallback...`);
-        }
-      } catch (nodeErr) {
-        console.warn('Node API send failed, trying PHP fallback:', nodeErr);
-      }
-
-      // Fallback to PHP script if Node API didn't succeed (e.g., hosted on standalone PHP server)
-      if (!emailSentNode) {
-        try {
-          const phpResponse = await fetch('./send-email.php', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(payload)
-          });
-          const phpData = await phpResponse.json();
-          console.log('Email sending outcome (PHP):', phpData);
-        } catch (phpErr) {
-          console.error('Error invoking PHP fallback email send:', phpErr);
-        }
-      }
+      const response = await fetch('./send-email.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+      const data = await response.json();
+      console.log('Email sending outcome:', data);
     } catch (err) {
-      console.error('Error invoking email send service:', err);
+      console.error('Error sending email:', err);
     }
   };
 
