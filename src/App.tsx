@@ -140,8 +140,13 @@ export default function App() {
 
   const fab = (
     <a href="https://wadil.mx"
-       className="fixed bottom-6 right-6 z-50 w-12 h-12 bg-wad-red-600 hover:bg-wad-red-500 text-white rounded-full shadow-lg flex items-center justify-center transition-colors cursor-pointer">
-      <House className="w-5 h-5" strokeWidth={2} />
+       className="fixed bottom-6 right-6 z-50 flex items-center bg-wad-red-600 hover:bg-wad-red-500 text-white rounded-full shadow-lg cursor-pointer transition-all duration-200 h-12 overflow-hidden w-12 hover:w-[8.5rem] group">
+      <div className="flex items-center justify-center w-12 h-12 shrink-0">
+        <House className="w-5 h-5" strokeWidth={2} />
+      </div>
+      <span className="font-display font-bold text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 delay-100 pr-4">
+        Regresar
+      </span>
     </a>
   );
 
