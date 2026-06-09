@@ -888,13 +888,18 @@ export default function App() {
                 </motion.div>
               </div>
 
-              <button 
-                onClick={reset}
-                className="flex items-center gap-1.5 text-wad-ink-400 hover:text-wad-ink-600 font-display font-bold text-xs transition-colors uppercase tracking-widest mb-10 cursor-pointer"
-              >
-                <RefreshCw className="w-3.5 h-3.5" strokeWidth={2} />
-                Volver a empezar
-              </button>
+              <div className="flex items-center gap-6 mb-10">
+                <a href="https://wadil.mx" className="flex items-center gap-1.5 text-wad-red-600 hover:text-wad-red-500 font-display font-bold text-xs transition-colors uppercase tracking-widest">
+                  Ir al sitio
+                </a>
+                <button 
+                  onClick={reset}
+                  className="flex items-center gap-1.5 text-wad-ink-400 hover:text-wad-ink-600 font-display font-bold text-xs transition-colors uppercase tracking-widest cursor-pointer"
+                >
+                  <RefreshCw className="w-3.5 h-3.5" strokeWidth={2} />
+                  Volver a empezar
+                </button>
+              </div>
             </motion.div>
             </motion.div>
           </div>
