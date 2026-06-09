@@ -145,7 +145,7 @@ export default function App() {
         <House className="w-5 h-5" strokeWidth={2} />
       </div>
       <span className="font-display font-bold text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 delay-100 pr-4">
-        Regresar
+        Ir al sitio
       </span>
     </a>
   );
@@ -916,7 +916,7 @@ export default function App() {
         <div className="flex flex-col items-end gap-1">
           <div className="flex items-center gap-4">
             <a href="https://wadil.mx" className="text-xs font-display font-bold text-wad-red-600 hover:text-wad-red-500 transition-colors">
-              Inicio
+              Ir al sitio
             </a>
             <span className="text-xs font-display font-bold text-wad-ink-400">{currentQuestionIndex !== null ? currentQuestionIndex + 1 : showResult ? QUESTIONS.length : 1}/{QUESTIONS.length}</span>
             <div className="w-24 bg-wad-bg-soft h-1.5 rounded-full overflow-hidden border border-wad-ink-100/50">
