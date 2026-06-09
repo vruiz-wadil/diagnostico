@@ -18,7 +18,8 @@ import {
   Zap,
   Search,
   Activity,
-  X
+  X,
+  ExternalLink
 } from 'lucide-react';
 import { QUESTIONS, LEVELS_CONFIG, CATEGORIES } from './config';
 import { AssessmentResult, CompanyLevel, Option } from './types';
@@ -136,6 +137,13 @@ export default function App() {
   const [currentSessionId, setCurrentSessionId] = useState<string | null>(null);
   const [userAnswers, setUserAnswers] = useState<Array<{ questionId: number; questionText: string; answerLabel: string; points: number }>>([]);
   const scrollRef = useRef<HTMLDivElement>(null);
+
+  const fab = (
+    <a href="https://wadil.mx" target="_blank" rel="noopener noreferrer"
+       className="fixed bottom-6 right-6 z-50 w-12 h-12 bg-wad-red-600 hover:bg-wad-red-500 text-white rounded-full shadow-lg flex items-center justify-center transition-colors cursor-pointer">
+      <ExternalLink className="w-5 h-5" strokeWidth={2} />
+    </a>
+  );
 
   const initialized = useRef(false);
 
@@ -394,6 +402,7 @@ export default function App() {
             <span>Tu información es confidencial · Wadil AI Studio</span>
           </div>
         </motion.div>
+        {fab}
       </div>
     );
   }
@@ -461,6 +470,7 @@ export default function App() {
              PROCESANDO DIAGNÓSTICO ESTRATÉGICO
           </div>
         </motion.div>
+        {fab}
       </div>
     );
   }
@@ -695,7 +705,9 @@ export default function App() {
       <div className={`flex flex-col flex-1 transition-all duration-1000 ${!isUnlocked ? 'blur-3xl' : 'blur-0'}`}>
         {/* Refined Professional Header */}
         <nav className="h-16 bg-white border-b border-wad-ink-100/60 px-8 flex items-center justify-between flex-shrink-0 z-20">
-          <WadilLogo className="scale-75 origin-left" />
+          <a href="https://wadil.mx" target="_blank" rel="noopener noreferrer" className="flex items-center">
+            <WadilLogo className="scale-75 origin-left" />
+          </a>
 
           <div className="flex flex-col items-end gap-1">
             <div className="flex items-center gap-2">
@@ -880,6 +892,7 @@ export default function App() {
             </motion.div>
           </div>
         </main>
+        {fab}
       </div>
     </div>
     );
@@ -889,7 +902,9 @@ export default function App() {
     <div className="h-screen bg-wad-bg-soft flex flex-col font-sans text-wad-ink-800 overflow-hidden relative">
       {/* Refined Professional Header */}
       <nav className="h-16 bg-white border-b border-wad-ink-100/60 px-8 flex items-center justify-between flex-shrink-0 z-20">
-        <WadilLogo className="scale-75 origin-left" />
+        <a href="https://wadil.mx" target="_blank" rel="noopener noreferrer" className="flex items-center">
+          <WadilLogo className="scale-75 origin-left" />
+        </a>
 
         <div className="flex flex-col items-end gap-1">
           <div className="flex items-center gap-2">
@@ -990,6 +1005,7 @@ export default function App() {
           </div>
         </div>
       </main>
+      {fab}
     </div>
   );
 }
