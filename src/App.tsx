@@ -708,7 +708,7 @@ export default function App() {
         </nav>
         
         <div className="bg-white px-8 py-2 border-b border-wad-ink-100/30 text-center">
-          <span className="text-wad-ink-500 font-display font-bold text-xs">Diagnóstico empresarial · Asesor IA</span>
+          <span className="text-wad-ink-500 font-display font-bold text-xs">Diagnóstico empresarial · Asesor AI</span>
         </div>
 
         {/* Main Container - Results Focused */}
@@ -905,7 +905,7 @@ export default function App() {
       </nav>
       
       <div className="bg-white px-8 py-2 border-b border-wad-ink-100/30 text-center flex-shrink-0">
-        <span className="text-wad-ink-500 font-display font-bold text-xs">Diagnóstico empresarial · Asesor IA</span>
+        <span className="text-wad-ink-500 font-display font-bold text-xs">Diagnóstico empresarial · Asesor AI</span>
       </div>
 
       {/* Main Container */}
