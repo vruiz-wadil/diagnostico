@@ -109,8 +109,8 @@ const WadilLogoWhite = ({ className = "" }: { className?: string }) => (
 const WadilEmblem = ({ className = "" }: { className?: string }) => (
   <svg 
     viewBox="0 0 283 145" 
-    className={className} 
-    fill="none" 
+    className={className}
+    preserveAspectRatio="xMidYMid meet"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path 
